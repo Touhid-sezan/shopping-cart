@@ -53,3 +53,13 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+#farewell-section{
+	display: none;
+	background-color: tomato;
+	text-align: center;
+}
+#farewell-section h1 {
+    color: white;
+    line-height: 1000px;
+    text-align: center;
+}

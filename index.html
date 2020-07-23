@@ -12,11 +12,11 @@
 
 <body>
 
-   <section>
+   <section id="cart-section">
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div id="cart1" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -25,17 +25,17 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-button1" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="item-input1" class="form-control text-center" value="1">
+                           <button id="plus-button1" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <h5>$ <span id="item-price1">1219</span></h5>
+                        <img id="crossBtn1" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div id="cart2" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
                         <img src="images/product-2.png" alt="">
@@ -43,13 +43,13 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-button2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="item-input2" class="form-control text-center" value="1">
+                           <button id="plus-button2" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <h5>$ <span id="item-price2">59</span></h5>
+                        <img id="crossBtn2" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
@@ -64,19 +64,127 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="sub-amount">1278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="total-amount">1278</span></h5>
                      </div>
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <button id="checkout-button" type="button" class="btn btn-success check-out">Check Out</button>
                </div>
             </div>
          </div>
       </div>
    </section>
+   <section id="farewell-section">
+      <div id="farewell">
+         <h1>Thanks for being with us</h1>
+      </div>
+   </section>
+
+   <script>
+// Plus button1 event handler
+      const plusBtn = document.getElementById("plus-button1");
+      plusBtn.addEventListener("click", function(){
+         const items = document.getElementById("item-input1").value;
+         const itemsNumber = parseFloat(items);
+         document.getElementById("item-input1").value = itemsNumber + 1;
+
+         const itemPrice = document.getElementById("item-price1").innerText;
+         const itemPriceNumber = parseFloat(itemPrice);
+         document.getElementById("item-price1").innerText = itemPriceNumber + 1219;
+// sub amount plus button1
+         const subAmount = document.getElementById("sub-amount").innerText;
+         const subAmountNumber = parseFloat(subAmount);
+         document.getElementById("sub-amount").innerText = subAmountNumber + 1219;
+// Total amount plus button1
+         const totalAmount = document.getElementById("total-amount").innerText;
+         const totalAmountNumber = parseFloat(totalAmount);
+         document.getElementById("total-amount").innerText = totalAmountNumber + 1219;
+
+      })
+// plus button 2
+      const plusBtn2 = document.getElementById("plus-button2");
+         plusBtn2.addEventListener("click", function(){
+         const items = document.getElementById("item-input2").value;
+         const itemsNumber = parseFloat(items);
+         document.getElementById("item-input2").value = itemsNumber + 1;
+
+         const itemPrice = document.getElementById("item-price2").innerText;
+         const itemPriceNumber = parseFloat(itemPrice);
+         document.getElementById("item-price2").innerText = itemPriceNumber + 59;
+// subtotal plus button2
+         const subAmount = document.getElementById("sub-amount").innerText;
+         const subAmountNumber = parseFloat(subAmount);
+         document.getElementById("sub-amount").innerText = subAmountNumber + 59;
+// Total amount plus button1
+         const totalAmount = document.getElementById("total-amount").innerText;
+         const totalAmountNumber = parseFloat(totalAmount);
+         document.getElementById("total-amount").innerText = totalAmountNumber + 59;
+
+      })
+ // Minus button event handler
+      const minusBtn1 = document.getElementById("minus-button1");
+         minusBtn1.addEventListener("click", function(){
+         const items = document.getElementById("item-input1").value;
+         const itemsNumber = parseFloat(items);
+         document.getElementById("item-input1").value = itemsNumber - 1;
+
+         const itemPrice = document.getElementById("item-price1").innerText;
+         const itemPriceNumber = parseFloat(itemPrice);
+         document.getElementById("item-price1").innerText = itemPriceNumber - 1219;
+
+// subtotal minus button 1
+         const subAmount = document.getElementById("sub-amount").innerText;
+         const subAmountNumber = parseFloat(subAmount);
+         document.getElementById("sub-amount").innerText = subAmountNumber - 1219;
+// Total amount plus button1
+         const totalAmount = document.getElementById("total-amount").innerText;
+         const totalAmountNumber = parseFloat(totalAmount);
+         document.getElementById("total-amount").innerText = totalAmountNumber - 1219;
+      })
+// minus button 2
+      const minusBtn2 = document.getElementById("minus-button2");
+         minusBtn2.addEventListener("click", function(){
+         const items = document.getElementById("item-input2").value;
+         const itemsNumber = parseFloat(items);
+         document.getElementById("item-input2").value = itemsNumber - 1;
+
+         const itemPrice = document.getElementById("item-price2").innerText;
+         const itemPriceNumber = parseFloat(itemPrice);
+         document.getElementById("item-price2").innerText = itemPriceNumber - 59;
+// subtotal minus button 2
+         const subAmount = document.getElementById("sub-amount").innerText;
+         const subAmountNumber = parseFloat(subAmount);
+         document.getElementById("sub-amount").innerText = subAmountNumber - 59;
+// Total amount plus button1
+         const totalAmount = document.getElementById("total-amount").innerText;
+         const totalAmountNumber = parseFloat(totalAmount);
+         document.getElementById("total-amount").innerText = totalAmountNumber - 59;
+      })
+// Cross button event handler
+      const crossBtn1 = document.getElementById("crossBtn1");
+      crossBtn1.addEventListener("click", function(){
+         alert("Product will remove from your cart")
+         document.getElementById("cart1").style.display = "none";
+      })
+
+      const crossBtn2 = document.getElementById("crossBtn2");
+      crossBtn2.addEventListener("click", function(){
+         alert("Product will remove from your cart")
+         document.getElementById("cart2").style.display = "none";
+      })
+
+// checkout button event handler
+      const checkoutBtn = document.getElementById("checkout-button");
+      checkoutBtn.addEventListener("click", function(){
+         const cartArea = document.getElementById("cart-section");
+         cartArea.style.display = "none";
+      const farewellArea = document.getElementById("farewell-section");
+      farewellArea.style.display="block";
+      })
+   </script>
 </body>
 
 </html>
